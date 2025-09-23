@@ -55,8 +55,8 @@ function DesopitReport() {
     }
     if (filters.userId) {
       result = result.filter(
-    (item) => item.userId?.toLowerCase() === filters.userId.toLowerCase()
-  );
+        (item) => item.userId?.toLowerCase() === filters.userId.toLowerCase()
+      );
     }
 
     if (filters.from) {
@@ -131,15 +131,16 @@ function DesopitReport() {
             <option value="rejected">Rejected</option>
           </CFormSelect>
         </CCol>
+
         <CCol md={3}>
-            <CFormInput
-                      label="UserId"
-                      // placeholder="e.g. USDT.TRC20"
-                      value={filters.userId}
-                      onChange={(e) => setFilters({ ...filters, userId: e.target.value })}
-                    />
+          <CFormInput
+            label="UserId"
+            value={filters.userId}
+            onChange={(e) => setFilters({ ...filters, userId: e.target.value })}
+          />
         </CCol>
-        <CCol md={3}>
+
+        <CCol md={2}>
           <CFormInput
             type="date"
             label="From Date"
@@ -147,7 +148,8 @@ function DesopitReport() {
             onChange={(e) => setFilters({ ...filters, from: e.target.value })}
           />
         </CCol>
-        <CCol md={3}>
+
+        <CCol md={2}>
           <CFormInput
             type="date"
             label="To Date"
@@ -155,7 +157,8 @@ function DesopitReport() {
             onChange={(e) => setFilters({ ...filters, to: e.target.value })}
           />
         </CCol>
-        <CCol md={3} className="d-flex align-items-end gap-2">
+
+        <CCol md={2} className="d-flex align-items-end gap-2">
           <CButton color="primary" onClick={handleSearch}>Search</CButton>
           <CButton color="info" onClick={handleReset}>Reset</CButton>
         </CCol>

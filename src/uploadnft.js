@@ -104,9 +104,9 @@ console.log(formData)
 
     <CContainer fluid className="py-4">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h3 className="fw-bold">NFT Gallery</h3>
+        <h3 className="fw-bold">Gallery</h3>
         <CButton color="primary" onClick={() => setVisible(true)}>
-          + Add NFT
+          + Add 
         </CButton>
       </div>
 {loading ? (

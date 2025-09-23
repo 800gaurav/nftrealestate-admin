@@ -4,12 +4,11 @@ import useAuth from './useAuth';
 import useToastHandler from './useToastHandler';
 
 // export const baseUrl = 'http://localhost:3010';
-export const baseUrl = 'https://backend.nftstoke.com';
 // export const imgBaseUrl = 'http://192.168.1.10:5012';
 // export const baseUrl = 'http://192.168.1.10:3010'
-
-// export const baseUrl = 'https://backend.mysmgservice.com/';
-export const imgBaseUrl = 'https://backend.nftstoke.com';
+export const loginAsUserUrl = 'https://jupitertoken.in';
+export const baseUrl = 'https://backend.jupitertoken.in/';
+export const imgBaseUrl = 'https://backend.jupitertoken.in';
 
 const useAxios = (initialConfig = {}, options = {}) => {
 

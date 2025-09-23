@@ -11,7 +11,7 @@ import {
   CTableHeaderCell,
   CTableDataCell,
 } from '@coreui/react';
-import useAxios from '../../../hooks/useAxios';
+import useAxios, { loginAsUserUrl } from '../../../hooks/useAxios';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import LoadingSpinner from '../../../components/common/LoadinSpinner';
@@ -56,7 +56,7 @@ const PendingUsersWithFilter = () => {
       });
       if (data.success) {
         const token = data?.data;
-        const redirectUrl = `https://nftstoke.com/Login?userId=${userId}&token=${token}`;
+        const redirectUrl = `${loginAsUserUrl}/Login?userId=${userId}&token=${token}`;
         window.location.href = redirectUrl;
       }
     } catch (error) {

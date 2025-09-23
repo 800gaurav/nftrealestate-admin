@@ -12,7 +12,7 @@ import {
 
 import { AppSidebarNav } from './AppSidebarNav'
 
-import logo from '../assets/images/logo-high.webp'
+// import logo from '../assets/images/logo-high.png'
 
 // sidebar nav config
 import navigation from '../_nav'
@@ -45,18 +45,13 @@ console.log(unfoldable)
       <CSidebarHeader className="d-flex w-100 overflow-hidden gap-2 justify-content-center align-items-center">
         <CSidebarBrand >
           <div className='d-flex w-100 h-50 gap-2 justify-content-center align-items-center'>
-            {/* <img
-              src={logo}
-              width={"100%"}
-              height={"100%"}
+            <img
+              src='logo.png'
+              width={"50%"}
+              height={"50%"}
               
-            /> */}
-            <h4 style={{
-              color: "#FF9E16",
-              textDecoration: "none",
-              fontFamily: "cursive",
-              textUnderlineOffset: "none",
-            }}>Nft-Stoke</h4>
+            />
+           
           </div>
           {/* <CIcon customClassName="sidebar-brand-full" icon={logo} height={32} />
           <CIcon customClassName="sidebar-brand-narrow" icon={sygnet} height={32} /> */}

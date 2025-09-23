@@ -84,7 +84,7 @@ const Shownftbyprice = () => {
           method: 'DELETE',
         })
         if (res.success) {
-          showAlert('NFT deleted successfully')
+          showAlert('deleted successfully')
           fetchNFTs()
         } else {
           showAlert('Failed to delete NFT', 'danger')
@@ -123,17 +123,17 @@ const Shownftbyprice = () => {
         data: postData
       })
       if (res.success) {
-        showAlert('NFT uploaded successfully')
+        showAlert('uploaded successfully')
         setVisible(false)
         setFormData({ title: '', description: '', price: '', image: null })
         setPreview(null)
         fetchNFTs()
       } else {
-        showAlert('Failed to upload NFT', 'danger')
+        showAlert('Failed to upload ', 'danger')
       }
     } catch (err) {
-      console.error('Error uploading NFT:', err)
-      showAlert('Failed to upload NFT', 'danger')
+      console.error('Error uploading :', err)
+      showAlert('Failed to upload ', 'danger')
     } finally {
       setLoading(false)
     }
@@ -151,9 +151,9 @@ const Shownftbyprice = () => {
       )}
 
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h3 className="fw-bold">${price} All NFT</h3>
+        <h3 className="fw-bold">${price} All </h3>
         <CButton color="primary" onClick={() => setVisible(true)}>
-          + Add NFT
+          + Add 
         </CButton>
       </div>
       {loading ? (
@@ -225,7 +225,7 @@ const Shownftbyprice = () => {
       {/* Modal */}
       <CModal alignment="center" visible={visible} onClose={() => setVisible(false)}>
         <CModalHeader onClose={() => setVisible(false)}>
-          <strong>Upload New NFT</strong>
+          <strong>Upload New </strong>
         </CModalHeader>
         <CModalBody>
           <CForm onSubmit={handleSubmit}>

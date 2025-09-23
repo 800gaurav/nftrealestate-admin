@@ -15,7 +15,7 @@ import {
 } from '@coreui/react'
 import { useNavigate } from 'react-router-dom'
 
-import useAxios from '../../../hooks/useAxios'
+import useAxios, { loginAsUserUrl } from '../../../hooks/useAxios'
 import ImagePreviewModal from '../../../components/common/ImageViewModal'
 import toast from 'react-hot-toast'
 import LoadingSpinner from '../../../components/common/LoadinSpinner'
@@ -53,15 +53,15 @@ const SettingsTable = () => {
   const loginAsUser = async (id, userId) => {
     try {
       const data = await fetchData({
-       url: `/api/v1/admin/user/login-as-user/${id}`,
+        url: `/api/v1/admin/user/login-as-user/${id}`,
         method: 'get',
       })
       if (data.success) {
         console.log(data.data)
         console.log(userId)
-         const token = data?.data; 
-      const redirectUrl = `https://nftstoke.com/Login?userId=${userId}&token=${token}`;
-      window.location.href = redirectUrl;
+        const token = data?.data;
+        const redirectUrl = `${loginAsUserUrl}/Login?userId=${userId}&token=${token}`;
+        window.location.href = redirectUrl;
 
       }
     } catch (error) {
@@ -75,7 +75,7 @@ const SettingsTable = () => {
       const res = await fetchData({
         url: `/api/v1/admin/user/unblockuser/${userId}`,
         method: 'PATCH',
-        data: { status: true},
+        data: { status: true },
       });
 
       if (res?.message) {
@@ -88,31 +88,31 @@ const SettingsTable = () => {
     }
   };
 
- const handleupdatestatus = async (e, userId) =>{
-  const newstatus = e.target.value
-   const res = await fetchData({
-        url: `/api/v1/admin/user/update-Roistatus/${userId}`,
-        method: 'PUT',
-        data: { roistatus: newstatus},
-      });
+  const handleupdatestatus = async (e, userId) => {
+    const newstatus = e.target.value
+    const res = await fetchData({
+      url: `/api/v1/admin/user/update-Roistatus/${userId}`,
+      method: 'PUT',
+      data: { roistatus: newstatus },
+    });
 
-      if (res?.success) {
-        toast.success(`ROI ${newstatus === 'true' ? 'stopped' : 'started'} successfully`)
-        getUserLists()
-      }
+    if (res?.success) {
+      toast.success(`ROI ${newstatus === 'true' ? 'stopped' : 'started'} successfully`)
+      getUserLists()
+    }
 
- }
- 
+  }
 
-const filteredSettings = settings.filter(
-  (user) =>
-    user.name?.toLowerCase().includes(filterText.toLowerCase()) ||
-    user.email?.toLowerCase().includes(filterText.toLowerCase()) ||
-    user.phone?.toString().includes(filterText) ||
-    user.userId?.toString().includes(filterText)
-)
 
-   const totalPages = Math.ceil(filteredSettings.length / itemsPerPage)
+  const filteredSettings = settings.filter(
+    (user) =>
+      user.name?.toLowerCase().includes(filterText.toLowerCase()) ||
+      user.email?.toLowerCase().includes(filterText.toLowerCase()) ||
+      user.phone?.toString().includes(filterText) ||
+      user.userId?.toString().includes(filterText)
+  )
+
+  const totalPages = Math.ceil(filteredSettings.length / itemsPerPage)
   const indexOfLast = currentPage * itemsPerPage
   const indexOfFirst = indexOfLast - itemsPerPage
   const currentItems = filteredSettings.slice(indexOfFirst, indexOfLast)
@@ -165,22 +165,22 @@ const filteredSettings = settings.filter(
       {loading && <LoadingSpinner />}
       <CCardBody>
         <CRow className="mb-3">
-  <CCol sm={6}>
-    <h4 className="card-title mb-0">All Active Users</h4>
-  </CCol>
-  <CCol sm={6} className="text-end">
-    <input
-      type="text"
-      placeholder="Search by Name, Email or Phone"
-      value={filterText}
-      onChange={(e) => setFilterText(e.target.value)}
-      className="form-control w-50 d-inline-block"
-    />
-  </CCol>
-</CRow>
+          <CCol sm={6}>
+            <h4 className="card-title mb-0">All Active Users</h4>
+          </CCol>
+          <CCol sm={6} className="text-end">
+            <input
+              type="text"
+              placeholder="Search by Name, Email or Phone"
+              value={filterText}
+              onChange={(e) => setFilterText(e.target.value)}
+              className="form-control w-50 d-inline-block"
+            />
+          </CCol>
+        </CRow>
 
         {/* Top Pagination */}
-        <PaginationControls />
+        {/* <PaginationControls /> */}
 
         <div className="table-responsive">
           <CTable align="middle" className="mb-0 border" hover responsive>
@@ -202,7 +202,7 @@ const filteredSettings = settings.filter(
             <CTableBody>
               {currentItems.length > 0 ? (
                 currentItems.map((user, key) => {
-                  
+
                   const date = new Date(user.createdAt)
                   return (
                     <CTableRow key={user._id}>
@@ -219,25 +219,25 @@ const filteredSettings = settings.filter(
                         {date.toLocaleDateString()} <br />
                         <small className="text-muted">{date.toLocaleTimeString()}</small>
                       </CTableDataCell>
-                         <CTableDataCell>
-                    <CFormSelect
-                      
-                      value={user.stopROIIncome?.toString()}
-                      onChange={(e)=>  handleupdatestatus(e, user.userId)}
-                      className={user.stopROIIncome?.toString() === 'true' ? 'bg-danger text-white' : 'bg-success text-white'}
-                      options={[
-                        { label: 'Start', value: 'false' },
-                        { label: 'Stop', value: 'true' },
-                      ]}
-                    />
-                  </CTableDataCell>
+                      <CTableDataCell>
+                        <CFormSelect
+
+                          value={user.stopROIIncome?.toString()}
+                          onChange={(e) => handleupdatestatus(e, user.userId)}
+                          className={user.stopROIIncome?.toString() === 'true' ? 'bg-danger text-white' : 'bg-success text-white'}
+                          options={[
+                            { label: 'Start', value: 'false' },
+                            { label: 'Stop', value: 'true' },
+                          ]}
+                        />
+                      </CTableDataCell>
                       <CTableDataCell className="text-center d-flex justify-content-center gap-2 flex-wrap">
                         <CButton
                           color="info"
                           size="sm"
                           title="Edit"
                           disabled={user?.role === 'admin'}
-                          onClick={() => navigate(`/user/update/${user.userId}`, {state: {user}})}
+                          onClick={() => navigate(`/user/update/${user.userId}`, { state: { user } })}
                         >
                           ✎
                         </CButton>
@@ -247,7 +247,7 @@ const filteredSettings = settings.filter(
                           title="Suspend"
                           disabled={user?.role === 'admin'}
                           onClick={() => Suspendeduser(user.userId)}
-                          
+
                         >
                           Suspend
                         </CButton>

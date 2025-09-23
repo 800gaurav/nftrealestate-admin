@@ -43,7 +43,7 @@ const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/users-allusers', name: 'All Users', element:  allusers},
-  { path: '/add/nft', name: 'Nft Upload', element:  uploadnft},
+  { path: '/add/nft', name: 'Upload', element:  uploadnft},
   { path: '/direct-income-report', name: 'Direct Income Report', element:  directIncomeReport},
   { path: '/roi-income-report', name: 'Roi Income Report', element:  roiReport},
   { path: '/level-income-report', name: 'level Income Report', element:  levelReport},

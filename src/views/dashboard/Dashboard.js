@@ -15,18 +15,15 @@ import useAuth from '../../hooks/useAuth';
 
 
 const Dashboard = () => {
-const [dashboardData, setDashboardData] = useState(null);
-console.log(dashboardData)
-const { logout , user} = useAuth()
-console.log(user)
+  const [dashboardData, setDashboardData] = useState(null);
+  console.log(dashboardData)
+  const { logout, user } = useAuth()
+  console.log(user)
 
 
   const { fetchData, loading } = useAxios();
-useEffect(()=>{
-  if(user.email !== "admin.nftstoke@gmail.com"){
-    logout()
-  }
-  },[])
+
+
   const getDashboardDetails = async () => {
     try {
       const res = await fetchData({
@@ -46,7 +43,7 @@ useEffect(()=>{
 
 
 
- const statusCards = [
+  const statusCards = [
     { label: "Total Users", value: dashboardData?.totalUsers || 0, icon: cilUser },
     { label: "Total Active Users", value: dashboardData?.totalActiveUsers || 0, icon: cilUser },
     { label: "Total Pending Users", value: dashboardData?.totalInactiveUsers || 0, icon: cilCheck },
@@ -64,12 +61,16 @@ useEffect(()=>{
 
 
   return (
- 
+
 
     <CRow>
       {statusCards.map((card, index) => (
         <CCol xs={6} sm={6} md={4} lg={3} key={index} className="mb-4">
-          <div className="h-100 d-flex flex-column" style={{ backgroundColor: '#8674a6', borderRadius: '8px' }}>
+          <div className="h-100 d-flex flex-column" style={{
+            background: 'linear-gradient(135deg, #58188b 0%, #302c85 50%, #20388e 100%)',
+            borderRadius: '8px'
+          }}
+          >
             <CWidgetStatsC
               className="flex-grow-1 text-white"
               icon={<CIcon icon={card.icon} height={20} />}
@@ -84,7 +85,7 @@ useEffect(()=>{
     </CRow>
 
 
-    
+
   );
 };
 

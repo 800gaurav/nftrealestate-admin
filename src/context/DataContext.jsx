@@ -38,12 +38,12 @@ const lists =[
       to: '/dashboard',
       icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     },
-    {
-      component: CNavItem,
-      name: 'Add NFT',
-      to: '/add/nft',
-      icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
-    },
+    // {
+    //   component: CNavItem,
+    //   name: 'Add NFT',
+    //   to: '/add/nft',
+    //   icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+    // },
     {
       component: CNavGroup,
       name: 'Users',

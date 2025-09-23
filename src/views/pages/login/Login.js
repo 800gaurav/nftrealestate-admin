@@ -92,6 +92,7 @@ const Login = () => {
         return
       }
       if (data.success) {
+      
         const user = {
           name: data?.data?.name,
           email: data?.data?.email,
@@ -99,8 +100,8 @@ const Login = () => {
           role:'admin'
         }
         // console.log(login)
-        console.log(data.data.token)
-        console.log(data.user)
+        console.log('test',data.data.token)
+        console.log('tsihf',data.user)
         login(data.data.token, user)
       }
 

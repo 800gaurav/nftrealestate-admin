@@ -11,7 +11,7 @@ import {
   CTableHeaderCell,
   CTableDataCell,
 } from '@coreui/react';
-import useAxios from '../../../hooks/useAxios';
+import useAxios, { loginAsUserUrl } from '../../../hooks/useAxios';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import LoadingSpinner from '../../../components/common/LoadinSpinner';
@@ -60,7 +60,7 @@ const SuspendedUsers = () => {
         console.log(data.data)
         console.log(userId)
          const token = data?.data; 
-      const redirectUrl = `https://website.nftstoke.com/Login?userId=${userId}&token=${token}`;
+      const redirectUrl = `${loginAsUserUrl}/Login?userId=${userId}&token=${token}`;
       window.location.href = redirectUrl;
 
       }

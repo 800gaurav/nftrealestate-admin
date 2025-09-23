@@ -180,7 +180,7 @@ const Updateuser = () => {
          <CRow className="mb-3">
           <CCol md={12}>
     <CFormInput
-      label="NFT Purchase Date"
+      label="Purchase Date"
       type="date"
       value={form.nftPurchaseDate?.split('T')[0] || ''}
       onChange={(e) => handleChange('nftPurchaseDate', e.target.value)}
