@@ -45,7 +45,7 @@ const Updateuser = () => {
         fundBalance: user.fundBalance || 0,
         password: '',
         txnpass: '',
-        nftPurchaseDate:user.nfts[0]?.purchasedAt ? new Date(user.nfts[0].purchasedAt).toISOString().split("T")[0] : '',
+        nftPurchaseDate: user.nfts[0]?.purchasedAt ? new Date(user.nfts[0].purchasedAt).toISOString().split("T")[0] : '',
       });
     }
   }, [user]);
@@ -167,7 +167,7 @@ const Updateuser = () => {
               onChange={(e) => handleChange('password', e.target.value)}
             />
           </CCol>
-          <CCol md={6}>
+          {/* <CCol md={6}>
             <CFormInput
               label="Transaction Password"
               type="password"
@@ -175,27 +175,27 @@ const Updateuser = () => {
               value={form.txnpass}
               onChange={(e) => handleChange('txnpass', e.target.value)}
             />
-          </CCol>
+          </CCol> */}
         </CRow>
-         <CRow className="mb-3">
+        {/* <CRow className="mb-3">
           <CCol md={12}>
-    <CFormInput
-      label="Purchase Date"
-      type="date"
-      value={form.nftPurchaseDate?.split('T')[0] || ''}
-      onChange={(e) => handleChange('nftPurchaseDate', e.target.value)}
-    />
-  </CCol>
-        </CRow>
+            <CFormInput
+              label="Purchase Date"
+              type="date"
+              value={form.nftPurchaseDate?.split('T')[0] || ''}
+              onChange={(e) => handleChange('nftPurchaseDate', e.target.value)}
+            />
+          </CCol>
+        </CRow> */}
 
         <CRow className="mt-4">
           <CCol className="d-flex gap-2">
             <CButton color="primary" onClick={handleSubmit}>Update</CButton>
             <CButton color="secondary" onClick={handleReset}>Reset</CButton>
           </CCol>
-          
+
         </CRow>
-        
+
       </CCardBody>
     </CCard>
   );

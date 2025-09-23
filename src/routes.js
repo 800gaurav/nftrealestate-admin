@@ -40,7 +40,7 @@ const UserDashboard = React.lazy(() => import('./components/user/Dashboard'))
 const UserProfile = React.lazy(() => import('./components/user/Profile'))
 
 const routes = [
-  { path: '/', exact: true, name: 'Home' },
+  { path: '/', exact: true, element: Dashboard  },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/users-allusers', name: 'All Users', element:  allusers},
   { path: '/add/nft', name: 'Upload', element:  uploadnft},

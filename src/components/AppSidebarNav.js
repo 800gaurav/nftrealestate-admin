@@ -14,14 +14,16 @@ export const AppSidebarNav = ({ items }) => {
 
     return (
       <>
-        {icon
-          ? icon
-          : indent && (
-              <span className="nav-icon">
-                <span className="nav-icon-bullet"></span>
-              </span>
-            )}
-        {name && name}
+        {icon ? (
+          <span className="me-2">{icon}</span>
+        ) : (
+          indent && (
+            <span className="nav-icon me-2">
+              <span className="nav-icon-bullet"></span>
+            </span>
+          )
+        )}
+        {name && <span>{name}</span>}
         {badge && (
           <CBadge color={badge.color} className="ms-auto" size="sm">
             {badge.text}
@@ -42,13 +44,13 @@ export const AppSidebarNav = ({ items }) => {
             {...(rest.href && { target: '_blank', rel: 'noopener noreferrer' })}
             {...rest}
           >
-            {navLink(name, icon, badge, indent)}  
+            {navLink(name, icon, badge, indent)}
             {/* <CIcon icon={cilOptions} /> */}
-            
+
           </CNavLink>
         ) : (
-          navLink(name, icon, badge, indent) 
-          
+          navLink(name, icon, badge, indent)
+
         )}
       </Component>
     )

@@ -141,6 +141,7 @@ function rewardReport() {
               <CTableHeaderCell>#</CTableHeaderCell>
               <CTableHeaderCell>User ID</CTableHeaderCell>
               {/* <CTableHeaderCell>Business</CTableHeaderCell> */}
+              <CTableHeaderCell>Name</CTableHeaderCell>
               <CTableHeaderCell>Strong Leg</CTableHeaderCell>
               <CTableHeaderCell>Other Leg</CTableHeaderCell>
               <CTableHeaderCell>Reward ($)</CTableHeaderCell>
@@ -153,6 +154,7 @@ function rewardReport() {
                 <CTableDataCell>{indexOfFirst + index + 1}</CTableDataCell>
                 <CTableDataCell>{item.userId}</CTableDataCell>
                 {/* <CTableDataCell>${item.business}</CTableDataCell> */}
+                <CTableDataCell>{item.name}</CTableDataCell>
                 <CTableDataCell>${item.strongLeg}</CTableDataCell>
                 <CTableDataCell>${item.otherLeg}</CTableDataCell>
                 <CTableDataCell>${item.reward}</CTableDataCell>

@@ -60,8 +60,11 @@ const SettingsTable = () => {
         console.log(data.data)
         console.log(userId)
         const token = data?.data;
-        const redirectUrl = `${loginAsUserUrl}/Login?userId=${userId}&token=${token}`;
-        window.location.href = redirectUrl;
+        const redirectUrl = `${loginAsUserUrl}/login?userId=${userId}&token=${token}`;
+        window.open(redirectUrl, "_blank");
+        console.log(redirectUrl)
+
+        // window.location.href = redirectUrl;
 
       }
     } catch (error) {

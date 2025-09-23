@@ -6,9 +6,9 @@ import useToastHandler from './useToastHandler';
 // export const baseUrl = 'http://localhost:3010';
 // export const imgBaseUrl = 'http://192.168.1.10:5012';
 // export const baseUrl = 'http://192.168.1.10:3010'
-export const loginAsUserUrl = 'https://jupitertoken.in';
-export const baseUrl = 'https://backend.jupitertoken.in/';
-export const imgBaseUrl = 'https://backend.jupitertoken.in';
+export const loginAsUserUrl = 'https://jupitertoken.us';
+export const baseUrl = 'https://backend.jupitertoken.us/';
+export const imgBaseUrl = 'https://backend.jupitertoken.us';
 
 const useAxios = (initialConfig = {}, options = {}) => {
 

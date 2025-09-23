@@ -116,9 +116,10 @@ const AppHeader = () => {
 
           <CHeaderNav className="d-none d-md-flex">
             <CNavItem>
-              <CNavLink to="/dashboard" component={NavLink}>
+              {/* <CNavLink to="/dashboard" component={NavLink}>
                 Dashboard
-              </CNavLink>
+              </CNavLink> */}
+              <AppBreadcrumb />
             </CNavItem>
           </CHeaderNav>
 
@@ -147,18 +148,21 @@ const AppHeader = () => {
                 <CDropdownItem
                   active={colorMode === 'light'}
                   onClick={() => setColorMode('light')}
+                  style={{ cursor: 'pointer' }}
                 >
                   <CIcon className="me-2" icon={cilSun} size="lg" /> Light
                 </CDropdownItem>
                 <CDropdownItem
                   active={colorMode === 'dark'}
                   onClick={() => setColorMode('dark')}
+                  style={{ cursor: 'pointer' }}
                 >
                   <CIcon className="me-2" icon={cilMoon} size="lg" /> Dark
                 </CDropdownItem>
                 <CDropdownItem
                   active={colorMode === 'auto'}
                   onClick={() => setColorMode('auto')}
+                  style={{ cursor: 'pointer' }}
                 >
                   <CIcon className="me-2" icon={cilContrast} size="lg" /> Auto
                 </CDropdownItem>
@@ -173,9 +177,9 @@ const AppHeader = () => {
           </CHeaderNav>
         </CContainer>
 
-        <CContainer className="px-4" fluid>
+        {/* <CContainer className="px-4" fluid>
           <AppBreadcrumb />
-        </CContainer>
+        </CContainer> */}
       </CHeader>
 
       {/* Modal for Creating Site Tab */}

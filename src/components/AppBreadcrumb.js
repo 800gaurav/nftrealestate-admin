@@ -36,9 +36,9 @@ const AppBreadcrumb = () => {
 
   return (
     <CBreadcrumb className="my-0">
-      <CBreadcrumbItem onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
+     {/* <CBreadcrumbItem onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
         Home
-      </CBreadcrumbItem>
+      </CBreadcrumbItem>` */}
       {breadcrumbs.map((breadcrumb, index) => (
         <CBreadcrumbItem
           key={index}

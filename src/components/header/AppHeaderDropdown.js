@@ -23,7 +23,8 @@ import {
 } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
 
-import avatar8 from './../../assets/images/avatars/8.jpg'
+// import avatar8 from './../../assets/images/avatars/profile.jpg'
+import profile from './../../assets/images/avatars/profile.png'
 import useAuth from '../../hooks/useAuth'
 
 const AppHeaderDropdown = () => {
@@ -31,11 +32,13 @@ const AppHeaderDropdown = () => {
   return (
     <CDropdown variant="nav-item">
       <CDropdownToggle placement="bottom-end" className="py-0 pe-0" caret={false}>
-        <CAvatar src={avatar8} size="md" />
+        {/* <CAvatar src='assets/images/avatars/9.png' size="md" /> */}
+        <CAvatar src={profile} size="md" />
+
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
         <CDropdownHeader className="bg-body-secondary fw-semibold mb-2">Account</CDropdownHeader>
-        <CDropdownItem onClick={logout}>
+        <CDropdownItem onClick={logout} style={{ cursor :'pointer' }}>
           Logout {""}
           <CIcon icon={cilAccountLogout} className="ml-2" />
           {/* <CBadge color="info" className="ms-2">
