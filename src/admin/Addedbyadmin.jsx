@@ -102,7 +102,8 @@ const Addedbyadmin = () => {
         color: activeTab === 'referrals' ? '#321fdb' : '#6c757d',
         fontWeight: '500',
         borderBottomWidth: '3px',
-        borderBottomColor: activeTab === 'referrals' ? '#321fdb' : 'transparent'
+        borderBottomColor: activeTab === 'referrals' ? '#321fdb' : 'transparent',
+        cursor : 'pointer'
       }}
     >
       <CIcon icon={cilPeople} className="me-2" />
@@ -118,10 +119,11 @@ const Addedbyadmin = () => {
         color: activeTab === 'history' ? '#321fdb' : '#6c757d',
         fontWeight: '500',
         borderBottomWidth: '3px',
-        borderBottomColor: activeTab === 'history' ? '#321fdb' : 'transparent'
+        borderBottomColor: activeTab === 'history' ? '#321fdb' : 'transparent',
+        cursor : 'pointer'
       }}
     >
-      <CIcon icon={cilHistory} className="me-2" />
+      <CIcon icon={cilHistory} className="me-2"   />
       Update History
     </CNavLink>
   </CNavItem>

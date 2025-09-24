@@ -50,18 +50,19 @@ const SuspendedUsers = () => {
     fetchSuspendedUsers();
   }, []);
 
-   const loginAsUser = async (id, userId) => {
+  const loginAsUser = async (id, userId) => {
     try {
       const data = await fetchData({
-       url: `/api/v1/admin/user/login-as-user/${id}`,
+        url: `/api/v1/admin/user/login-as-user/${id}`,
         method: 'get',
       })
       if (data.success) {
         console.log(data.data)
         console.log(userId)
-         const token = data?.data; 
-      const redirectUrl = `${loginAsUserUrl}/Login?userId=${userId}&token=${token}`;
-      window.location.href = redirectUrl;
+        const token = data?.data;
+         const redirectUrl = `${loginAsUserUrl}/login?userId=${userId}&token=${token}`;
+              window.open(redirectUrl, "_blank");
+        // window.location.href = redirectUrl;
 
       }
     } catch (error) {
@@ -200,7 +201,7 @@ const SuspendedUsers = () => {
                     <CButton
                       color="info"
                       size="sm"
-                      onClick={() => navigate(`/user/update/${user.userId}`, {state: {user}})}
+                      onClick={() => navigate(`/user/update/${user.userId}`, { state: { user } })}
                     >
                       ✎
                     </CButton>
@@ -212,16 +213,16 @@ const SuspendedUsers = () => {
                       Activate
                     </CButton>
                   </CTableDataCell>
-              <CTableDataCell className="text-center">
-                        <CButton
-                          disabled={user?.role === 'admin'}
-                          color="primary"
-                          size="sm"
-                          onClick={() => loginAsUser(user._id, user.userId)}
-                        >
-                          Login
-                        </CButton>
-                      </CTableDataCell>
+                  <CTableDataCell className="text-center">
+                    <CButton
+                      disabled={user?.role === 'admin'}
+                      color="primary"
+                      size="sm"
+                      onClick={() => loginAsUser(user._id, user.userId)}
+                    >
+                      Login
+                    </CButton>
+                  </CTableDataCell>
                 </CTableRow>
               );
             })}

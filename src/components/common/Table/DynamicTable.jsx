@@ -56,8 +56,8 @@ const PendingUsersWithFilter = () => {
       });
       if (data.success) {
         const token = data?.data;
-        const redirectUrl = `${loginAsUserUrl}/Login?userId=${userId}&token=${token}`;
-        window.location.href = redirectUrl;
+        const redirectUrl = `${loginAsUserUrl}/login?userId=${userId}&token=${token}`;
+        window.open(redirectUrl, "_blank");
       }
     } catch (error) {
       toast.error('Login as user failed');
