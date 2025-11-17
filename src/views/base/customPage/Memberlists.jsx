@@ -240,7 +240,7 @@ const SettingsTable = () => {
                           size="sm"
                           title="Edit"
                           disabled={user?.role === 'admin'}
-                          onClick={() => navigate(`/user/update/${user.userId}`, { state: { user } })}
+                           onClick={() => navigate(`/user/update/${user.userId}`, { state: { user, isActivated: true } })}
                         >
                           ✎
                         </CButton>

@@ -255,7 +255,7 @@ const PendingUsersWithFilter = () => {
                       color="info"
                       size="sm"
                       onClick={() =>
-                        navigate(`/user/update/${user.userId}`, { state: { user } })
+                        navigate(`/user/update/${user.userId}`, { state: { user, isActivated: false } })
                       }
                     >
                       ✎

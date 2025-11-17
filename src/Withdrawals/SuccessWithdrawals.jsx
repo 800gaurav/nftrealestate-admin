@@ -89,7 +89,7 @@ function SuccessWithdrawals() {
         <CCol md={3}>
           <CFormInput
             label="UserId"
-            placeholder="e.g. USDT.TRC20"
+            placeholder="UserId"
             value={filters.userId}
             onChange={(e) => setFilters({ ...filters, userId: e.target.value })}
           />

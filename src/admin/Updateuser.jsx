@@ -6,6 +6,7 @@ import {
   CButton,
   CCard,
   CCardBody,
+  CFormSwitch,
 } from '@coreui/react';
 import { useLocation, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
@@ -15,8 +16,8 @@ import LoadingSpinner from '../components/common/LoadinSpinner';
 const Updateuser = () => {
   const { userId } = useParams();
   const location = useLocation();
-  const user = location.state?.user;
-  console.log(user)
+  const { user, isActivated } = location.state || {}
+  console.log(user, "users")
 
   const { fetchData, loading } = useAxios();
 
@@ -27,10 +28,11 @@ const Updateuser = () => {
     phone: '',
     email: '',
     walletBalance: 0,
+    totalInvested: 0,
     fundBalance: 0,
     password: '',
     txnpass: '',
-    nftPurchaseDate: '',
+    isActivated: false,
   });
 
   useEffect(() => {
@@ -42,10 +44,11 @@ const Updateuser = () => {
         phone: user.phone || '',
         email: user.email || '',
         walletBalance: user.walletBalance || 0,
+        totalInvested: user.totalInvested || 0,
         fundBalance: user.fundBalance || 0,
         password: '',
         txnpass: '',
-        nftPurchaseDate: user.nfts[0]?.purchasedAt ? new Date(user.nfts[0].purchasedAt).toISOString().split("T")[0] : '',
+       isActivated: isActivated ?? user.isActivated,
       });
     }
   }, [user]);
@@ -58,6 +61,7 @@ const Updateuser = () => {
     const payload = {
       ...form,
       walletBalance: Number(form.walletBalance),
+      totalInvested: Number(form.totalInvested),
       fundBalance: Number(form.fundBalance),
     };
 
@@ -93,7 +97,8 @@ const Updateuser = () => {
         fundBalance: 0,
         password: '',
         txnpass: '',
-        nftPurchaseDate: '',
+        totalInvested: 0,
+        isActivated: isActivated ?? user.isActivated,
       });
     }
   };
@@ -167,26 +172,26 @@ const Updateuser = () => {
               onChange={(e) => handleChange('password', e.target.value)}
             />
           </CCol>
-          {/* <CCol md={6}>
+      <CCol md={6}>
             <CFormInput
-              label="Transaction Password"
-              type="password"
-              placeholder="Enter transaction password"
-              value={form.txnpass}
-              onChange={(e) => handleChange('txnpass', e.target.value)}
-            />
-          </CCol> */}
-        </CRow>
-        {/* <CRow className="mb-3">
-          <CCol md={12}>
-            <CFormInput
-              label="Purchase Date"
-              type="date"
-              value={form.nftPurchaseDate?.split('T')[0] || ''}
-              onChange={(e) => handleChange('nftPurchaseDate', e.target.value)}
+              label={`Total Invest (Current = ${user.totalInvested})`}
+              type="number"
+              value={form.totalInvested}
+              onChange={(e) => handleChange('totalInvested', e.target.value)}
             />
           </CCol>
-        </CRow> */}
+          </CRow>
+          <CRow className="mb-3">
+      <CCol md={6} className="d-flex flex-column justify-content-center">
+            <label className="fw-bold mb-2">Activation Status:</label>
+            <CFormSwitch
+              label={form.isActivated ? 'Activated' : 'Deactivated'}
+              checked={form.isActivated}
+              onChange={(e) => handleChange('isActivated', e.target.checked)}
+            />
+          </CCol>
+        </CRow>
+    
 
         <CRow className="mt-4">
           <CCol className="d-flex gap-2">
