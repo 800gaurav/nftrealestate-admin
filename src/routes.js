@@ -9,9 +9,6 @@ import PlanActivation from './components/user/Activation/PlanActivation'
 import allusers from './users/allusers'
 import uploadnft from './uploadnft'
 import directIncomeReport from './incomeReport/directIncomeReport'
-import roiReport from './incomeReport/roiReport'
-import rewardReport from './incomeReport/rewardReport'
-import levelReport from './incomeReport/levelReport'
 import InvestHistory from './Invest/InvestHistory'
 import SuspendedUsers from './views/pages/member/SuspendedUsers'
 import InvalidWithdrawals from './Withdrawals/InvalidWithdrawals'
@@ -19,12 +16,12 @@ import SuccessWithdrawals from './Withdrawals/SuccessWithdrawals'
 import PendingWithdrawals from './Withdrawals/PendingWithdrawals'
 import DesopitReport from './Withdrawals/DesopitReport'
 import Addedbyadmin from './admin/Addedbyadmin'
-import TransferHistory from './admin/TransferHistory'
 import Updateuser from './admin/Updateuser'
 import Shownftbyprice from './admin/Shownftbyprice'
 import levelUsers from './incomeReport/levelusers'
 import UserAlertMessage from './admin/UserAlertMessage'
 import PendingUsersWithFilter from './components/common/Table/DynamicTable'
+import UserIncomeReport from './incomeReport/UserIncomeReport'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 
@@ -44,14 +41,10 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/users-allusers', name: 'All Users', element:  allusers},
   { path: '/add/nft', name: 'Upload', element:  uploadnft},
-  { path: '/direct-income-report', name: 'Direct Income Report', element:  directIncomeReport},
-  { path: '/roi-income-report', name: 'Roi Income Report', element:  roiReport},
-  { path: '/level-income-report', name: 'level Income Report', element:  levelReport},
-  { path: '/reward-income-report', name: 'Reward Income Report', element:  rewardReport},
+  { path: '/direct-income-report', name: 'Sponsor Income Report', element:  directIncomeReport},
   { path: '/deposit-report', name: 'Deposit Report', element:  DesopitReport},
   { path: '/admin-referals', name: 'Added By Admin/History', element:  Addedbyadmin},
   { path: '/user-alert', name: 'Added By Admin/History', element:  UserAlertMessage},
-  { path: '/transfer-report', name: 'Transfer Report', element:  TransferHistory},
 
   // Invest
  { path: '/invest-history', name: 'Invest History', element:  InvestHistory},
@@ -83,6 +76,7 @@ const routes = [
   { path: '/user/update/:userId', name: 'Profile', element: Updateuser },
   { path: '/user/price-wise-nft/:price', name: 'Nft', element: Shownftbyprice },
   { path: '/level-users/:level', name: 'Nft', element: levelUsers },
+  { path: '/user-income-report', name: 'User Income Report', element: UserIncomeReport },
 
 ]
 

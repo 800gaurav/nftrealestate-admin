@@ -30,7 +30,7 @@ function directIncomeReport() {
 
   const fetchRoyaltyHistory = async () => {
     try {
-      const res = await fetchData({ url:'/api/v1/admin/incomehistory/pro-bonus-history' });
+      const res = await fetchData({ url:'/api/v1/admin/incomehistory/sponsor-income-history' });
       if (res?.data) {
         setHistory(res.data);
         setFiltered(res.data);

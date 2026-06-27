@@ -121,27 +121,9 @@ const lists = [
     items: [
       {
         component: CNavItem,
-        name: 'Direct Income Report',
+        name: 'Sponsor Income Report',
         to: '/direct-income-report',
         icon: <CIcon icon={cilLockUnlocked} />,
-      },
-      {
-        component: CNavItem,
-        name: 'Roi Income Report',
-        to: '/roi-income-report',
-        icon: <CIcon icon={cibRust} />,
-      },
-      {
-        component: CNavItem,
-        name: 'Level Income Report',
-        to: '/level-income-report',
-        icon: <CIcon icon={cibMyspace} />,
-      },
-      {
-        component: CNavItem,
-        name: 'Reward Income Report',
-        to: '/reward-income-report',
-        icon: <CIcon icon={cibLaravelNova} />,
       },
       // {
       //   component: CNavItem,

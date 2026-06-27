@@ -29,6 +29,8 @@ const Updateuser = () => {
     email: '',
     walletBalance: 0,
     totalInvested: 0,
+    stakingPrincipal: 0,
+    roiPercent: 0.5,
     fundBalance: 0,
     password: '',
     txnpass: '',
@@ -45,6 +47,8 @@ const Updateuser = () => {
         email: user.email || '',
         walletBalance: user.walletBalance || 0,
         totalInvested: user.totalInvested || 0,
+        stakingPrincipal: user.stakingPrincipal || 0,
+        roiPercent: user.roiPercent || 0.5,
         fundBalance: user.fundBalance || 0,
         password: '',
         txnpass: '',
@@ -62,6 +66,8 @@ const Updateuser = () => {
       ...form,
       walletBalance: Number(form.walletBalance),
       totalInvested: Number(form.totalInvested),
+      stakingPrincipal: Number(form.stakingPrincipal),
+      roiPercent: Number(form.roiPercent),
       fundBalance: Number(form.fundBalance),
     };
 
@@ -95,6 +101,8 @@ const Updateuser = () => {
         email: user.email || '',
         walletBalance: 0,
         fundBalance: 0,
+        stakingPrincipal: 0,
+        roiPercent: user.roiPercent || 0.5,
         password: '',
         txnpass: '',
         totalInvested: 0,
@@ -172,12 +180,33 @@ const Updateuser = () => {
               onChange={(e) => handleChange('password', e.target.value)}
             />
           </CCol>
-      <CCol md={6}>
+          <CCol md={6}>
             <CFormInput
               label={`Total Invest (Current = ${user.totalInvested})`}
               type="number"
               value={form.totalInvested}
               onChange={(e) => handleChange('totalInvested', e.target.value)}
+            />
+          </CCol>
+          </CRow>
+          <CRow className="mb-3">
+          <CCol md={6}>
+            <CFormInput
+              label={`Staking Principal 40% (Current = ${user.stakingPrincipal || 0})`}
+              type="number"
+              value={form.stakingPrincipal}
+              onChange={(e) => handleChange('stakingPrincipal', e.target.value)}
+            />
+          </CCol>
+          <CCol md={6}>
+            <CFormInput
+              label={`Daily ROI % (0.5 - 1)`}
+              type="number"
+              min="0.5"
+              max="1"
+              step="0.1"
+              value={form.roiPercent}
+              onChange={(e) => handleChange('roiPercent', e.target.value)}
             />
           </CCol>
           </CRow>
