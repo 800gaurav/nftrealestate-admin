@@ -4,12 +4,14 @@ import useAuth from './useAuth';
 import useToastHandler from './useToastHandler';
 
 
+export const loginAsUserUrl = 'https://node.nftrealestate.us';
+export const baseUrl = 'https://node.nftrealestate.us';
+export const imgBaseUrl = 'https://node.nftrealestate.us';
 
 
-
-export const loginAsUserUrl = 'http://localhost:5000';
-export const baseUrl = 'http://localhost:5000';
-export const imgBaseUrl = 'http://localhost:5000';
+// export const loginAsUserUrl = 'http://localhost:5000';
+// export const baseUrl = 'http://localhost:5000';
+// export const imgBaseUrl = 'http://localhost:5000';
 
 const useAxios = (initialConfig = {}, options = {}) => {
 
