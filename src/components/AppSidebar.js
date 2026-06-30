@@ -30,7 +30,6 @@ const AppSidebar = () => {
   useEffect(() => {
     getAllLists()
   }, [])
-console.log(unfoldable)
   return (
     <CSidebar
       className="border-end"
@@ -42,19 +41,14 @@ console.log(unfoldable)
         dispatch({ type: 'set', sidebarShow: visible })
       }}
     >
-      <CSidebarHeader className="d-flex w-100 overflow-hidden gap-2 justify-content-center align-items-center">
-        <CSidebarBrand >
-          <div className='d-flex w-100 h-50 gap-2 justify-content-center align-items-center'>
-            <img
-              src='logo.png'
-              width={"50%"}
-              height={"50%"}
-              
-            />
-           
-          </div>
-          {/* <CIcon customClassName="sidebar-brand-full" icon={logo} height={32} />
-          <CIcon customClassName="sidebar-brand-narrow" icon={sygnet} height={32} /> */}
+      <CSidebarHeader className="d-flex w-100 overflow-hidden justify-content-between align-items-center px-3" style={{ minHeight: 'calc(4rem + 1px)' }}>
+        <CSidebarBrand className="d-flex align-items-center gap-2 text-decoration-none">
+          {/* <img
+            src='/logo.png'
+            alt="Logo"
+            style={{ height: 40, width: 'auto', objectFit: 'contain', display: 'block' }}
+          /> */}
+          <span className="fs-4 fw-bold text-white"> Admin</span>
         </CSidebarBrand>
         <CCloseButton
           className="d-lg-none"

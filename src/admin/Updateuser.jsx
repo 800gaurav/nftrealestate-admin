@@ -198,17 +198,6 @@ const Updateuser = () => {
               onChange={(e) => handleChange('stakingPrincipal', e.target.value)}
             />
           </CCol>
-          <CCol md={6}>
-            <CFormInput
-              label={`Daily ROI % (0.5 - 1)`}
-              type="number"
-              min="0.5"
-              max="1"
-              step="0.1"
-              value={form.roiPercent}
-              onChange={(e) => handleChange('roiPercent', e.target.value)}
-            />
-          </CCol>
           </CRow>
           <CRow className="mb-3">
       <CCol md={6} className="d-flex flex-column justify-content-center">

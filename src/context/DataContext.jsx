@@ -99,22 +99,6 @@ const lists = [
 
   {
     component: CNavGroup,
-    name: 'Deposit History',
-    to: '/deposit-report',
-    icon: <CIcon icon={cibCodepen} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'Deposit History',
-        to: '/deposit-report',
-        icon: <CIcon icon={cilHistory} />,
-      },
-    ],
-  },
-
-
-  {
-    component: CNavGroup,
     name: 'Income History',
     to: '/income-report',
     icon: <CIcon icon={cilHistory} customClassName="nav-icon" />,
@@ -125,12 +109,18 @@ const lists = [
         to: '/direct-income-report',
         icon: <CIcon icon={cilLockUnlocked} />,
       },
-      // {
-      //   component: CNavItem,
-      //   name: 'Portfolio Records',
-      //   to: '/income-report/portfolio-records',
-      //   icon: <CIcon icon={cilBank} />,
-      // },
+      {
+        component: CNavItem,
+        name: 'User Income Report',
+        to: '/user-income-report',
+        icon: <CIcon icon={cilHistory} />,
+      },
+      {
+        component: CNavItem,
+        name: 'Rank Rewards',
+        to: '/rank-reward-report',
+        icon: <CIcon icon={cilStar} />,
+      },
     ],
   },
 
@@ -145,21 +135,6 @@ const lists = [
         name: 'Invest History',
         to: '/invest-history',
         icon: <CIcon icon={cibCodacy} />,
-      },
-    ],
-  },
-
-  {
-    component: CNavGroup,
-    name: 'Transfer History',
-    to: '/transfer-report',
-    icon: <CIcon icon={cibShazam} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'Transfer History',
-        to: '/transfer-report',
-        icon: <CIcon icon={cibGoogleChrome} />,
       },
     ],
   },
@@ -208,7 +183,12 @@ const lists = [
         to: '/user-alert',
         icon: <CIcon icon={cilReportSlash} />,
       },
-
+      {
+        component: CNavItem,
+        name: 'Plans Manager',
+        to: '/plans-manager',
+        icon: <CIcon icon={cilSettings} />,
+      },
     ],
   },
 
@@ -302,7 +282,6 @@ export const DataProvider = ({ children }) => {
     if (userRole !== 'user') {
       setSiteTabs(lists)
     }
-    console.log(userRole)
   }, [userRole])
 
   useEffect(() => {

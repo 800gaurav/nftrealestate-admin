@@ -17,14 +17,13 @@ const AppContent = () => {
                 <Route
                   key={idx}
                   path={route.path}
-                  exact={route.exact}
                   name={route.name}
                   element={<route.element />}
                 />
               )
             )
           })}
-          {/* <Route path="/" element={<Navigate to="dashboard" replace />} /> */}
+          <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </Suspense>
     </CContainer>

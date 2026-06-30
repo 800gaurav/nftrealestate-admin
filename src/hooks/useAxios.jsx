@@ -5,10 +5,7 @@ import useToastHandler from './useToastHandler';
 
 
 
-// export const baseUrl = 'http://192.168.1.52:6969/'
-// export const loginAsUserUrl = 'https://jupitertoken.us';
-// export const baseUrl = 'https://backend.jupitertoken.us/';
-// export const imgBaseUrl = 'https://backend.jupitertoken.us';
+
 
 export const loginAsUserUrl = 'http://localhost:5000';
 export const baseUrl = 'http://localhost:5000';

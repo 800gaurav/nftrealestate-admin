@@ -8,6 +8,7 @@ import {
   cilNotes,
   cilFindInPage,
   cilDescription,
+  cilSettings,
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
@@ -121,6 +122,12 @@ const _nav = [
     name: 'User Alert',
     to: '/user-alert',
     icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Plans Manager',
+    to: '/plans-manager',
+    icon: <CIcon icon={cilSettings} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,

@@ -77,7 +77,6 @@ export default function UserIncomeReport() {
                   <CTableHeaderCell>Staking</CTableHeaderCell>
                   <CTableHeaderCell>Sponsor</CTableHeaderCell>
                   <CTableHeaderCell>Matching</CTableHeaderCell>
-                  <CTableHeaderCell>Rank Reward</CTableHeaderCell>
                   <CTableHeaderCell>Total Income</CTableHeaderCell>
                   <CTableHeaderCell>Wallet Bal</CTableHeaderCell>
                   <CTableHeaderCell>Today Income</CTableHeaderCell>
@@ -86,7 +85,7 @@ export default function UserIncomeReport() {
               <CTableBody>
                 {report.length === 0 ? (
                   <CTableRow>
-                    <CTableDataCell colSpan={12} className="text-center text-muted py-4">
+                    <CTableDataCell colSpan={11} className="text-center text-muted py-4">
                       No records found
                     </CTableDataCell>
                   </CTableRow>
@@ -104,7 +103,6 @@ export default function UserIncomeReport() {
                     <CTableDataCell className="text-success">{fmt(u.stakingIncome)}</CTableDataCell>
                     <CTableDataCell className="text-primary">{fmt(u.sponsorIncome)}</CTableDataCell>
                     <CTableDataCell className="text-warning">{fmt(u.matchingIncome)}</CTableDataCell>
-                    <CTableDataCell className="text-info">{fmt(u.rankRewardIncome)}</CTableDataCell>
                     <CTableDataCell className="fw-bold">{fmt(u.totalIncome)}</CTableDataCell>
                     <CTableDataCell>{fmt(u.walletBalance)}</CTableDataCell>
                     <CTableDataCell className="text-warning">{fmt(u.todayIncome)}</CTableDataCell>

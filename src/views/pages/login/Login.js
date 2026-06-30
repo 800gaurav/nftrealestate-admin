@@ -284,7 +284,7 @@ const Login = () => {
 
 
                       </motion.div>
-                      <h1 className="login-title">Admin - Jupiter</h1>
+                      <h1 className="login-title">Admin - Nftrealestate</h1>
                       <p className="login-subtitle">Secure access to your dashboard</p>
                     </motion.div>
 
@@ -415,7 +415,7 @@ const Login = () => {
           overflow: hidden;
           padding: 20px;
         }
-        
+
         .particle-background {
           position: absolute;
           top: 0;
@@ -425,20 +425,20 @@ const Login = () => {
           z-index: 0;
           pointer-events: none;
         }
-        
+
         .particle {
           position: absolute;
           border-radius: 50%;
           background: rgba(255, 255, 255, 0.3);
           pointer-events: none;
         }
-        
+
         .login-content {
           position: relative;
           z-index: 1;
           width: 100%;
         }
-        
+
         .login-card {
           background: rgba(255, 255, 255, 0.95);
           backdrop-filter: blur(10px);
@@ -448,11 +448,11 @@ const Login = () => {
           overflow: hidden;
           transition: transform 0.3s ease;
         }
-        
+
         .login-card:hover {
           transform: translateY(-5px);
         }
-        
+
         .logo-container {
           display: inline-flex;
           padding: 20px;
@@ -460,12 +460,12 @@ const Login = () => {
           background: linear-gradient(135deg, ${color.primary} 0%, ${color.accent} 100%);
           box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
         }
-        
+
         .admin-icon {
           font-size: 2rem;
           color: white;
         }
-        
+
         .login-title {
           font-weight: 700;
           color: ${color.dark};
@@ -476,13 +476,13 @@ const Login = () => {
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
-        
+
         .login-subtitle {
           color: #6b7280;
           margin-bottom: 2rem;
           font-size: 0.9rem;
         }
-        
+
         .input-group-custom {
           background: ${color.light};
           border-radius: 12px;
@@ -491,12 +491,12 @@ const Login = () => {
           transition: all 0.3s ease;
           position: relative;
         }
-        
+
         .input-group-custom.active {
           border-color: ${color.primary};
           box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
-        
+
         .input-icon {
           background: transparent;
           border: none;
@@ -504,7 +504,7 @@ const Login = () => {
           min-width: 45px;
           justify-content: center;
         }
-        
+
         .input-field {
           background: transparent;
           border: none;
@@ -512,17 +512,17 @@ const Login = () => {
           padding: 12px;
           font-weight: 500;
         }
-        
+
         .input-field::placeholder {
           color: #9ca3af;
         }
-        
+
         .input-field:focus {
           background: transparent;
           color: ${color.dark};
           box-shadow: none;
         }
-        
+
         .input-highlight {
           position: absolute;
           bottom: 0;
@@ -531,7 +531,7 @@ const Login = () => {
           background: linear-gradient(90deg, ${color.primary}, ${color.accent});
           border-radius: 2px;
         }
-        
+
         .password-toggle {
           background: transparent;
           border: none;
@@ -541,11 +541,11 @@ const Login = () => {
           justify-content: center;
           transition: all 0.3s ease;
         }
-        
+
         .password-toggle:hover {
           color: ${color.primary};
         }
-        
+
         .error-alert {
           background: rgba(220, 53, 69, 0.1);
           border: 1px solid rgba(220, 53, 69, 0.2);
@@ -553,7 +553,7 @@ const Login = () => {
           border-radius: 10px;
           padding: 12px;
         }
-        
+
         .login-button {
           background: linear-gradient(135deg, ${color.primary} 0%, ${color.accent} 100%);
           border: none;
@@ -566,7 +566,7 @@ const Login = () => {
           position: relative;
           overflow: hidden;
         }
-        
+
         .login-button::before {
           content: '';
           position: absolute;
@@ -577,31 +577,31 @@ const Login = () => {
           background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
           transition: 0.5s;
         }
-        
+
         .login-button:hover:not(:disabled) {
           transform: translateY(-2px);
           box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
         }
-        
+
         .login-button:hover:not(:disabled)::before {
           left: 100%;
         }
-        
+
         .login-button:disabled {
           opacity: 0.7;
           cursor: not-allowed;
           transform: none;
         }
-        
+
         @media (max-width: 768px) {
           .login-container {
             padding: 10px;
           }
-          
+
           .login-title {
             font-size: 1.5rem;
           }
-          
+
           .login-card {
             border-radius: 16px;
           }

@@ -91,35 +91,6 @@ const SettingsTable = () => {
     }
   };
 
-  const handleupdatestatus = async (e, userId) => {
-    const newstatus = e.target.value
-    const res = await fetchData({
-      url: `/api/v1/admin/user/update-Roistatus/${userId}`,
-      method: 'PUT',
-      data: { roistatus: newstatus },
-    });
-
-    if (res?.success) {
-      toast.success(`ROI ${newstatus === 'true' ? 'stopped' : 'started'} successfully`)
-      getUserLists()
-    }
-
-  }
-
-  const handleUpdateRoiPercent = async (e, userId) => {
-    const roiPercent = Number(e.target.value)
-    const res = await fetchData({
-      url: `/api/v1/admin/user/update-Roipercent/${userId}`,
-      method: 'PUT',
-      data: { roiPercent },
-    });
-
-    if (res?.success) {
-      toast.success(`Daily ROI set to ${roiPercent}%`)
-      getUserLists()
-    }
-  }
-
 
   const filteredSettings = settings.filter(
     (user) =>
@@ -212,8 +183,6 @@ const SettingsTable = () => {
                 <CTableHeaderCell className="text-center">Sponsor</CTableHeaderCell>
                 <CTableHeaderCell className="text-center">Staking</CTableHeaderCell>
                 <CTableHeaderCell className="text-center">Date</CTableHeaderCell>
-                <CTableHeaderCell className="text-center">Daily ROI %</CTableHeaderCell>
-                <CTableHeaderCell className="text-center">ROI-Status</CTableHeaderCell>
                 <CTableHeaderCell className="text-center">Action</CTableHeaderCell>
                 <CTableHeaderCell className="text-center">Login</CTableHeaderCell>
               </CTableRow>
@@ -238,32 +207,6 @@ const SettingsTable = () => {
                       <CTableDataCell className="text-center">
                         {date.toLocaleDateString()} <br />
                         <small className="text-muted">{date.toLocaleTimeString()}</small>
-                      </CTableDataCell>
-                      <CTableDataCell>
-                        <CFormSelect
-                          value={Number(user.roiPercent || 0.5).toString()}
-                          onChange={(e) => handleUpdateRoiPercent(e, user.userId)}
-                          options={[
-                            { label: '0.5%', value: '0.5' },
-                            { label: '0.6%', value: '0.6' },
-                            { label: '0.7%', value: '0.7' },
-                            { label: '0.8%', value: '0.8' },
-                            { label: '0.9%', value: '0.9' },
-                            { label: '1%', value: '1' },
-                          ]}
-                        />
-                      </CTableDataCell>
-                      <CTableDataCell>
-                        <CFormSelect
-
-                          value={user.stopROIIncome?.toString()}
-                          onChange={(e) => handleupdatestatus(e, user.userId)}
-                          className={user.stopROIIncome?.toString() === 'true' ? 'bg-danger text-white' : 'bg-success text-white'}
-                          options={[
-                            { label: 'Start', value: 'false' },
-                            { label: 'Stop', value: 'true' },
-                          ]}
-                        />
                       </CTableDataCell>
                       <CTableDataCell className="text-center d-flex justify-content-center gap-2 flex-wrap">
                         <CButton
