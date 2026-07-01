@@ -55,7 +55,7 @@ const PendingUsersWithFilter = () => {
         method: 'get',
       });
       if (data.success) {
-        const token = data?.data;
+        const { token } = data?.data;
         const redirectUrl = `${loginAsUserUrl}/login?userId=${userId}&token=${token}`;
         window.open(redirectUrl, "_blank");
       }

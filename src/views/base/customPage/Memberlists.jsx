@@ -59,8 +59,8 @@ const SettingsTable = () => {
       if (data.success) {
         console.log(data.data)
         console.log(userId)
-        const token = data?.data;
-          const redirectUrl = `${loginAsUserUrl}/login?userId=${userId}&token=${token}`;
+        const { token } = data?.data;
+        const redirectUrl = `${loginAsUserUrl}/login?userId=${userId}&token=${token}`;
         window.open(redirectUrl, "_blank");
         console.log(redirectUrl)
 
