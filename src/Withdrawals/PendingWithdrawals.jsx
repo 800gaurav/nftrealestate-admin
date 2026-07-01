@@ -146,7 +146,10 @@ const handleupdatestatus = async (e, withdrawalId) => {
             <CTableRow>
               <CTableHeaderCell>S.No</CTableHeaderCell>
               <CTableHeaderCell>User ID</CTableHeaderCell>
-              <CTableHeaderCell>Address</CTableHeaderCell>
+              <CTableHeaderCell>Name</CTableHeaderCell>
+              <CTableHeaderCell>TRC20 Address</CTableHeaderCell>
+              <CTableHeaderCell>BEP20 Address</CTableHeaderCell>
+              <CTableHeaderCell>Withdraw Address</CTableHeaderCell>
               <CTableHeaderCell>Coin</CTableHeaderCell>
               <CTableHeaderCell>Amount</CTableHeaderCell>
               <CTableHeaderCell>Service Charge</CTableHeaderCell>
@@ -162,8 +165,11 @@ const handleupdatestatus = async (e, withdrawalId) => {
               return (
                 <CTableRow key={item._id}>
                   <CTableDataCell>{indexOfFirst + index + 1}</CTableDataCell>
-                  <CTableDataCell>{item.userId}</CTableDataCell>
-                  <CTableDataCell>{item.toAddress}</CTableDataCell>
+                  <CTableDataCell>{item.userId?.userId || item.userUniqueId}</CTableDataCell>
+                  <CTableDataCell>{item.userName || '-'}</CTableDataCell>
+                  <CTableDataCell><small>{item.withdrawTRC_ADDRESS || '-'}</small></CTableDataCell>
+                  <CTableDataCell><small>{item.withdrawBEP_ADDRESS || '-'}</small></CTableDataCell>
+                  <CTableDataCell><small>{item.toAddress || '-'}</small></CTableDataCell>
                   <CTableDataCell>{item.coin}</CTableDataCell>
                   <CTableDataCell>${item.amount}</CTableDataCell>
                   <CTableDataCell>${item.serviceCharge}</CTableDataCell>

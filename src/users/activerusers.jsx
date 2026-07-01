@@ -17,21 +17,10 @@ import {
 import { useNavigate } from 'react-router-dom'
 
 import useAxios from '../../../hooks/useAxios'
-import { imageFullUrl } from '../../helper'
-import ImagePreviewModal from '../../../components/common/ImageViewModal'
-import toast from 'react-hot-toast'
-import LoadingSpinner from '../../../components/common/LoadinSpinner'
-import useToastHandler from '../../../hooks/useToastHandler'
-import useAuth from '../../../hooks/useAuth'
 
 const SettingsTable = () => {
   const { fetchData, loading } = useAxios()
   const [settings, setSettings] = useState([])
-  const [selectedImage, setSelectedImage] = useState(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const { showToast, toastMessage, toastType, toastTrigger } = useToastHandler()
-  const navigate = useNavigate()
-  const {login ,loginAsAdmin}=useAuth()
   
   const getuserLists = async () => {
     // setSettings(data)
@@ -73,16 +62,12 @@ const SettingsTable = () => {
     try {
       const data = await fetchData({
         url: `/api/v1/admin/user/login-as-user/${id}`,
-        method: "POST",
-        data: {}
+        method: "GET",
       })
-      console.log(data)
       if (data.success) {
-        console.log(data)
-      
-        loginAsAdmin(data.data.token, data.data)
+        const { token, userId } = data.data
+        window.open(`https://nftrealestate.us/login?userId=${userId}&token=${token}`, '_blank')
       }
-
     } catch (error) {
       console.log(error)
     }
@@ -154,12 +139,7 @@ const SettingsTable = () => {
         </CTable>
       </CCardBody>
 
-      {/* Image Preview Modal */}
-      <ImagePreviewModal
-        imageUrl={selectedImage}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      {/* Image Preview Modal removed */}
     </CCard>
   )
 }

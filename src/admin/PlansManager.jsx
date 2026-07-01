@@ -24,7 +24,7 @@ const emptyIncomePlan = {
   staking: { name: 'Staking Income', note: 'Daily staking income comes from each package Staking Income %.' },
   joining: { name: 'Joining Staking Income', percentOfJoiningAmount: 40 },
   sponsor: { name: 'Sponsor / Referral Income', percent: 10 },
-  teamGrowth: { name: 'Team Growth Bonus', minPercent: 1, maxPercent: 3, requiredDirects: 10, minimumIdAmount: 100 },
+  teamGrowth: { name: 'Team Growth Bonus', percent: 1, requiredDirects: 10 },
   matching: { name: 'Matching Income', percent: 10, firstRatio: '2:1', nextRatio: '1:1', dailyCap: 50, hundredDollarIdDailyCap: 100 },
   withdrawal: { minAmount: 5, adminCharge: 10, onePendingAtATime: true },
 }
@@ -145,11 +145,8 @@ const PlansManager = () => {
                 <CTableHeaderCell>Code</CTableHeaderCell>
                 <CTableHeaderCell>Rank</CTableHeaderCell>
                 <CTableHeaderCell>Title</CTableHeaderCell>
-                <CTableHeaderCell>Price</CTableHeaderCell>
-                <CTableHeaderCell>Staking Income %</CTableHeaderCell>
-                <CTableHeaderCell>Daily ROI</CTableHeaderCell>
-                <CTableHeaderCell>Referral</CTableHeaderCell>
-                <CTableHeaderCell>Team Bonus</CTableHeaderCell>
+                <CTableHeaderCell>Price ($)</CTableHeaderCell>
+                <CTableHeaderCell>Staking Income % (daily)</CTableHeaderCell>
                 <CTableHeaderCell>Badge</CTableHeaderCell>
                 <CTableHeaderCell style={{ minWidth: 260 }}>Features</CTableHeaderCell>
               </CTableRow>
@@ -170,16 +167,16 @@ const PlansManager = () => {
                     <CFormInput type="number" value={plan.price || 0} onChange={(e) => updatePlan(index, 'price', e.target.value)} />
                   </CTableDataCell>
                   <CTableDataCell>
-                    <CFormInput type="number" step="0.01" value={plan.dailyPercent || 0} onChange={(e) => updatePlan(index, 'dailyPercent', e.target.value)} />
-                  </CTableDataCell>
-                  <CTableDataCell>
-                    <CFormInput value={plan.dailyROI || ''} onChange={(e) => updatePlan(index, 'dailyROI', e.target.value)} />
-                  </CTableDataCell>
-                  <CTableDataCell>
-                    <CFormInput value={plan.referral || ''} onChange={(e) => updatePlan(index, 'referral', e.target.value)} />
-                  </CTableDataCell>
-                  <CTableDataCell>
-                    <CFormInput value={plan.teamBonus || ''} onChange={(e) => updatePlan(index, 'teamBonus', e.target.value)} />
+                    <CFormInput
+                      type="number"
+                      step="0.01"
+                      min="0"
+                      max="100"
+                      value={plan.dailyPercent || 0}
+                      onChange={(e) => updatePlan(index, 'dailyPercent', e.target.value)}
+                      placeholder="e.g. 0.5 or 1"
+                    />
+                    <small className="text-muted">e.g. 0.5 = 0.5% daily</small>
                   </CTableDataCell>
                   <CTableDataCell>
                     <CFormInput value={plan.badge || ''} onChange={(e) => updatePlan(index, 'badge', e.target.value || null)} />
