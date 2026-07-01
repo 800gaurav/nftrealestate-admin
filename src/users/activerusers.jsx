@@ -62,7 +62,7 @@ const SettingsTable = () => {
     try {
       const data = await fetchData({
         url: `/api/v1/admin/user/login-as-user/${id}`,
-        method: "GET",
+        method: 'GET',
       })
       if (data.success) {
         const { token, userId } = data.data
