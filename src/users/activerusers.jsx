@@ -66,7 +66,8 @@ const SettingsTable = () => {
       })
       if (data.success) {
         const { token, userId } = data.data
-        window.open(`https://nftrealestate.us/login?userId=${userId}&token=${token}`, '_blank')
+        const encodedToken = encodeURIComponent(token)
+        window.open(`https://nftrealestate.us/login?userId=${userId}&token=${encodedToken}`, '_blank')
       }
     } catch (error) {
       console.log(error)
