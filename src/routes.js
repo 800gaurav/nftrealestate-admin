@@ -19,6 +19,7 @@ import levelUsers from './incomeReport/levelUsers'
 import UserAlertMessage from './admin/UserAlertMessage'
 import PendingUsersWithFilter from './components/common/Table/DynamicTable'
 import UserIncomeReport from './incomeReport/UserIncomeReport'
+import IncomeHistoryReport from './incomeReport/IncomeHistoryReport'
 import PlansManager from './admin/PlansManager'
 import RankRewardReport from './incomeReport/RankRewardReport'
 
@@ -64,6 +65,7 @@ const routes = [
   { path: '/user/price-wise-nft/:price', name: 'Nft', element: Shownftbyprice },
   { path: '/level-users/:level', name: 'Level Users', element: levelUsers },
   { path: '/user-income-report', name: 'User Income Report', element: UserIncomeReport },
+  { path: '/income-history-report', name: 'Income History Report', element: IncomeHistoryReport },
   { path: '/rank-reward-report', name: 'Rank Rewards', element: RankRewardReport },
 ]
 

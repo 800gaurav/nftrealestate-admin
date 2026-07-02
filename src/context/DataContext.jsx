@@ -117,6 +117,12 @@ const lists = [
       },
       {
         component: CNavItem,
+        name: 'Income History',
+        to: '/income-history-report',
+        icon: <CIcon icon={cilHistory} />,
+      },
+      {
+        component: CNavItem,
         name: 'Rank Rewards',
         to: '/rank-reward-report',
         icon: <CIcon icon={cilStar} />,

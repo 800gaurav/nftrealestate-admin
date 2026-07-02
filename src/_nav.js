@@ -64,6 +64,12 @@ const _nav = [
     icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
   },
   {
+    component: CNavItem,
+    name: 'Income History',
+    to: '/income-history-report',
+    icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
+  },
+  {
     component: CNavTitle,
     name: 'Withdrawals',
   },

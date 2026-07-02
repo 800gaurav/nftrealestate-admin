@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { CRow, CCol, CCard, CCardBody, CSpinner } from '@coreui/react'
+import { useNavigate } from 'react-router-dom'
 import useAxios from '../../hooks/useAxios'
 import toast from 'react-hot-toast'
 
@@ -10,6 +11,7 @@ export default function Dashboard() {
   const [data, setData] = useState(null)
   const [jobRunning, setJobRunning] = useState(false)
   const { fetchData } = useAxios()
+  const navigate = useNavigate()
 
   const load = async () => {
     try {
@@ -68,6 +70,26 @@ export default function Dashboard() {
     // { label: 'Rank Reward',     value: d.totalRankRewardIncome || 0, color: 'var(--cui-success)' },
   ]
 
+  const cardRoutes = {
+    'Total Users': '/users-allusers',
+    'Active Users': '/active-users',
+    'Inactive Users': '/pending/users',
+    'Blocked Users': '/suspended/users',
+    'Today Joined': '/users-allusers',
+    'Total Wallet Balance': '/user-income-report',
+    'Total Invested': '/invest-history',
+    'Pending Withdrawals': '/main-pending-withdrawals',
+    'Total Withdrawn': '/success-withdrawals',
+    'Staking Income': '/income-history-report',
+    'Sponsor Income': '/income-history-report',
+    'Matching Income': '/income-history-report',
+  }
+
+  const openCard = (label) => {
+    const route = cardRoutes[label]
+    if (route) navigate(route)
+  }
+
   return (
     <div className="p-4">
 
@@ -96,7 +118,7 @@ export default function Dashboard() {
     <CRow xs={{ cols: 2 }} sm={{ cols: 2 }} md={{ cols: 3 }} lg={{ cols: 5 }} className="g-3 mb-4">
   {userCards.map((c, i) => (
     <CCol key={i}>
-      <CCard className="h-100 border-0 shadow-sm">
+      <CCard className="h-100 border-0 shadow-sm" role="button" onClick={() => openCard(c.label)} style={{ cursor: 'pointer' }}>
         <CCardBody className="p-3">
           <div className="fs-4 mb-2">{c.icon}</div>
           <div className="fw-bold fs-4" style={{ color: c.color }}>
@@ -127,7 +149,7 @@ export default function Dashboard() {
       <CRow className="mb-4 g-3">
         {walletCards.map((c, i) => (
           <CCol xs={12} sm={6} lg={3} key={i}>
-            <CCard className="h-100 border-0 shadow-sm">
+            <CCard className="h-100 border-0 shadow-sm" role="button" onClick={() => openCard(c.label)} style={{ cursor: 'pointer' }}>
               <CCardBody className="p-3">
                 <div style={{ height: 3, background: c.color, borderRadius: 4, marginBottom: 12 }} />
                 <div className="d-flex align-items-center gap-2 mb-2">
@@ -174,7 +196,7 @@ export default function Dashboard() {
           const pct = totalIncome > 0 ? +((item.value / totalIncome) * 100).toFixed(1) : 0
           return (
             <CCol xs={6} sm={3} key={i}>
-              <CCard className="h-100 border-0 shadow-sm">
+              <CCard className="h-100 border-0 shadow-sm" role="button" onClick={() => openCard(item.label)} style={{ cursor: 'pointer' }}>
                 <CCardBody className="p-3">
                   <div style={{ height: 3, background: item.color, borderRadius: 4, marginBottom: 12 }} />
                   <p className="text-medium-emphasis small mb-1">{item.label}</p>
